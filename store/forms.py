@@ -19,9 +19,11 @@ class OrderForm(forms.ModelForm):
 		self.fields['address'].widget.attrs['class']= 'form-control'	
 		self.fields['postal_code'].widget.attrs['class']= 'form-control'
 		self.fields['email'].widget.attrs['class']= 'form-control'
-		self.fields['items'].widget.attrs['class']= 'form-control'	
-		self.fields['complete'].widget.attrs['class']= ''
-		self.fields['transaction_id'].widget.attrs['class']= 'form-control'
+		self.fields['items'].widget.attrs['class']= 'visually-hidden'	
+		self.fields['complete'].widget.attrs['class']= 'visually-hidden'
+		self.fields['transaction_id'].widget.attrs['class']= 'visually-hidden'
+		self.fields['customer'].widget.attrs['style']= 'display:none;'
+
 
 
 class ContactForm(forms.ModelForm):

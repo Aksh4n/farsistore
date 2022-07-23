@@ -18,6 +18,7 @@ urlpatterns = [
     path('updateprofile/',views.updateprofile, name='updateprofile'),
     path('sefaresh/',views.sefaresh, name='sefaresh'),
     path('discount/',views.discount, name='discount'),
+    path('gateway/',views.go_to_gateway_view, name='gateway'),
 
 
 
