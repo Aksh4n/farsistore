@@ -8,6 +8,20 @@ from django.contrib.auth import authenticate , login , logout
 from .forms import *
 from text.models import *
 
+def cart(request):
+	products = Product.objects.all()
+	data = cartData(request)
+	star = Star.objects.all()
+	cat = Category.objects.all()
+	cartItems = data['cartItems']
+	order = data['order']
+	items = data['items']
+	
+
+	context = {'items':items, 'order':order, 'cartItems':cartItems ,'products':products , 'star':star, 'cat':cat}
+
+	return render(request, 'cart.html', context)
+
 def getvar(request):
 	var = request.POST['option']
 	print(var)

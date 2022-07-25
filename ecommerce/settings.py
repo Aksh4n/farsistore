@@ -137,7 +137,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-MEDIA_URL = '/images/'
+MEDIA_URL = 'static/images/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
@@ -195,5 +195,4 @@ AZ_IRANIAN_BANK_GATEWAYS = {
 }
 
 
-django_heroku.settings(locals())
 

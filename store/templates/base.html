@@ -91,7 +91,7 @@
               <label for="floatingPassword">رمز عبور</label>
             </div>
             <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">ورود</button>
-            <small class="text-muted">رمز عبور را فراموش کرده اید ؟ اینجا کلیک کنید</small>
+            <small class="text-muted">رمز عبور را فراموش کرده اید ؟ <a href="{% url 'reset_password' %}">اینجا کلیک کنید</a> </small>
             <hr class="my-4">
           </form>
 
@@ -133,6 +133,9 @@
             <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">ثبت نام</button>
             <hr class="my-4">
           </form>
+          <strong style="float: right;"><small style="color: red;">توجه: نام کاربری به حروف کوچک و بزرگ حساس است</small></strong>
+          <strong style="float: right;"><small style="color: red; float: right;"> رمز عبور باید شامل حداقل 8 کاراکتر و ترکیبی از حروف کوچک و بزرگ باشد</small></strong>
+
 
         </div>
         <div class="modal-footer">

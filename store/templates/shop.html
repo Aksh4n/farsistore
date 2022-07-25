@@ -66,7 +66,7 @@
 
 
 
-
+<!-- 
 <div id="cart" class="modal fade " tabindex="-1">
     <div  class="modal-dialog modal-xl">
       <div  class="modal-content">
@@ -185,6 +185,7 @@
       </div>
     </div>
   </div>
+  -->
 
 <!-- Header-->
 <header   style="background-image: url({% static 'assets/img/back6.jpg' %})" data-aos="fade-in" class="bg-dark py-5">
@@ -215,11 +216,11 @@
 -->
 {% if user.is_authenticated %}
 
-<button id="cartinfo" style="width: 25%;" class="btn btn-success fixed-bottom mb-2 m-1"  data-bs-toggle="modal" data-bs-target="#cart">
+<a href="{% url 'cart' %}"><button id="cartinfo" style="width: 25%;" class="btn btn-success fixed-bottom mb-2 m-1"  data-bs-toggle="modal" data-bs-target="#cart">
   <i class="bi-cart-fill me-1"></i>
   سبد خرید
   <span  id="cart-total" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning" style="font-size:medium ;">{{cartItems}}</span>
-</button>
+</button></a>
 {% endif %}
 
 <!-- Section-->
