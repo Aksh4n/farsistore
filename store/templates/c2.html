@@ -67,14 +67,14 @@
 <div  class="container">
 <main>
 <div class="py-5 text-center">
-  <h2> فرم تکمیل خرید</h2>
-  <p class="lead">لطفا فرم زیر را تکمیل کنید . قبل از اتصال به درگاه بانک لطفا سبد خرید و مبلغ نهایی خود را چک کنید</p>
+  <h2>   Formulář pro dokončení nákupu</h2>
+  <p class="lead">Vyplňte prosím níže uvedený formulář. Před připojením k bankovnímu portálu zkontrolujte svůj nákupní košík a konečnou částku</p>
 </div>
 
 <div class="row g-5">
   <div class="col-md-5 col-lg-4 order-md-last">
     <h4 class="d-flex justify-content-between align-items-center mb-3">
-      <span class="text-primary">سبد خرید</span>
+      <span class="text-primary">Vozík</span>
       <span class="badge bg-primary rounded-pill">{{cartItems}}</span>
     </h4>
     {% for item in items %}
@@ -92,13 +92,13 @@
       {% endfor %}
       <li class="list-group-item d-flex justify-content-between bg-light">
         <div class="text-success">
-          <h6 class="my-0">تخفیف</h6>
+          <h6 class="my-0">Sleva</h6>
           <small id="code"></small>
         </div>
-        <span id="dis" class="text-success">−0t</span>
+        <span id="dis" class="text-success">−0Kc</span>
       </li>
       <li class="list-group-item d-flex justify-content-between">
-        <span>مبلغ نهایی (تومان)</span>
+        <span>Konečná částka</span>
         <strong id="totalpay">{{order.get_cart_total|floatformat:2}}t</strong>
       </li>
     </ul>
@@ -106,24 +106,168 @@
     <form method="post" action="{% url 'discount' %}" id="formdis" class="card p-2">
       {% csrf_token %}
       <div class="input-group">
-        <input type="text" name="code" class="form-control" placeholder="کد تخفیف">
-        <button type="submit" class="btn btn-secondary">اعمال</button>
+        <input type="text" name="code" class="form-control" placeholder="Discount code ">
+        <button type="submit" class="btn btn-secondary">Redeem</button>
       </div>
     </form>
 </div>
   <div class="col-md-7 col-lg-8">
     <h4 class="mb-3"> </h4>
-    <form id="check-form" method="post" class="card p-2" novalidate>
+  </div>
+  <div class="col-md-7 col-lg-8">
+    <h4 class="mb-3">Billing address</h4>
+    <form class="needs-validation" novalidate>
+      <div class="row g-3">
+        <div class="col-sm-6">
+          <label for="firstName" class="form-label">First name</label>
+          <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+          <div class="invalid-feedback">
+            Valid first name is required.
+          </div>
+        </div>
 
-      {% csrf_token %}
-      {{form.as_p}}
+        <div class="col-sm-6">
+          <label for="lastName" class="form-label">Last name</label>
+          <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+          <div class="invalid-feedback">
+            Valid last name is required.
+          </div>
+        </div>
 
+        <div class="col-12">
+          <label for="username" class="form-label">Username</label>
+          <div class="input-group has-validation">
+            <span class="input-group-text">@</span>
+            <input type="text" class="form-control" id="username" placeholder="Username" required>
+          <div class="invalid-feedback">
+              Your username is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
+          <input type="email" class="form-control" id="email" placeholder="you@example.com">
+          <div class="invalid-feedback">
+            Please enter a valid email address for shipping updates.
+          </div>
+        </div>
+
+        <div class="col-12">
+          <label for="address" class="form-label">Address</label>
+          <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+          <div class="invalid-feedback">
+            Please enter your shipping address.
+          </div>
+        </div>
+
+        <div class="col-12">
+          <label for="address2" class="form-label">Address 2 <span class="text-muted">(Optional)</span></label>
+          <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+        </div>
+
+        <div class="col-md-5">
+          <label for="country" class="form-label">Country</label>
+          <select class="form-select" id="country" required>
+            <option value="">Choose...</option>
+            <option>United States</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a valid country.
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <label for="state" class="form-label">State</label>
+          <select class="form-select" id="state" required>
+            <option value="">Choose...</option>
+            <option>California</option>
+          </select>
+          <div class="invalid-feedback">
+            Please provide a valid state.
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <label for="zip" class="form-label">Zip</label>
+          <input type="text" class="form-control" id="zip" placeholder="" required>
+          <div class="invalid-feedback">
+            Zip code required.
+          </div>
+        </div>
+      </div>
 
       <hr class="my-4">
 
-      <button class="w-100 btn btn-primary btn-lg" type="submit">پرداخت</button>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="same-address">
+        <label class="form-check-label" for="same-address">Shipping address is the same as my billing address</label>
+      </div>
+
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="save-info">
+        <label class="form-check-label" for="save-info">Save this information for next time</label>
+      </div>
+
+      <hr class="my-4">
+
+      <h4 class="mb-3">Payment</h4>
+
+      <div class="my-3">
+        <div class="form-check">
+          <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
+          <label class="form-check-label" for="credit">Credit card</label>
+        </div>
+        <div class="form-check">
+          <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
+          <label class="form-check-label" for="debit">Debit card</label>
+        </div>
+        <div class="form-check">
+          <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
+          <label class="form-check-label" for="paypal">PayPal</label>
+        </div>
+      </div>
+
+      <div class="row gy-3">
+        <div class="col-md-6">
+          <label for="cc-name" class="form-label">Name on card</label>
+          <input type="text" class="form-control" id="cc-name" placeholder="" required>
+          <small class="text-muted">Full name as displayed on card</small>
+          <div class="invalid-feedback">
+            Name on card is required
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label for="cc-number" class="form-label">Credit card number</label>
+          <input type="text" class="form-control" id="cc-number" placeholder="" required>
+          <div class="invalid-feedback">
+            Credit card number is required
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <label for="cc-expiration" class="form-label">Expiration</label>
+          <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+          <div class="invalid-feedback">
+            Expiration date required
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <label for="cc-cvv" class="form-label">CVV</label>
+          <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+          <div class="invalid-feedback">
+            Security code required
+          </div>
+        </div>
+      </div>
+
+      <hr class="my-4">
+
+      <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
     </form>
-  </div>
+    </div>
 </div>
 </main>
 </div>
@@ -131,11 +275,16 @@
 
 <script src="https://getbootstrap.com/docs/5.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script type="text/javascript" src="{% static 'assets/js/cart.js' %}"></script>
+<!--
+
+
 <script>
   var text1 = document.getElementById("check-form").innerHTML; 
   var result1 = text1.replace(/items:/gi, "").replace(/customer:/gi, "").replace(/complete:/gi, "").replace(/transaction id:/gi, "").replace(/First name:/gi, "نام").replace(/Last name:/gi, "نام خانوادگی").replace(/City:/gi, "شهر").replace(/State:/gi, "استان").replace(/Phone:/gi, "شماره همراه").replace(/Email:/gi, "ایمیل").replace(/Address:/gi, "آدرس").replace(/Postal code:/gi, "کد پستی");
   document.getElementById("check-form").innerHTML = result1;
 </script>
+-->
+
 
 
 <script>

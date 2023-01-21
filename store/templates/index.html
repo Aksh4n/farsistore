@@ -12,32 +12,32 @@
 
         <div class="carousel-inner" role="listbox">
 
-          <div class="carousel-item active" style="background-image: url(static/assets/img/back1.jpg)">
+          <div class="carousel-item active" style="background-image: url(static/assets/img/a11.jpg)">
             <div class="carousel-container">
               <div class="container">
-                <h2 class="animate__animated animate__fadeInDown">طلای نیما</h2>
-                <p class="animate__animated animate__fadeInUp">ساخت و پرداخت انواع طلا و جواهر</p>
-                <a style="background-color: rgba(0, 0, 0, 0.316);" href="{% url 'shop' %}" class="btn-get-started scrollto animate__animated animate__fadeInUp">فروشگاه</a>
+                <h2 class="animate__animated animate__fadeInDown">Esther Boutique </h2>
+                <p class="animate__animated animate__fadeInUp">      </p>
+                <a style="background-color: rgba(0, 0, 0, 0.316);" href="{% url 'shop' %}" class="btn-get-started scrollto animate__animated animate__fadeInUp">nakupovat online</a>
               </div>
             </div>
           </div>
 
-          <div class="carousel-item" style="background-image: url(static/assets/img/back2.jpg)">
+          <div class="carousel-item" style="background-image: url(static/assets/img/a2.jfif)">
             <div class="carousel-container">
               <div class="container">
-                <h2 class="animate__animated animate__fadeInDown">نیما بلاگ</h2>
-                <p class="animate__animated animate__fadeInUp">مطالب آموزشی و دانستنی در مورد دنیای جواهرات</p>
-                <a href="{% url 'blog' %}" class="btn-get-started scrollto animate__animated animate__fadeInUp">وبلاگ</a>
+                <h2 class="animate__animated animate__fadeInDown"> kde sedí móda</h2>
+                <p class="animate__animated animate__fadeInUp">   </p>
+                <a href="{% url 'shop' %}" class="btn-get-started scrollto animate__animated animate__fadeInUp">nakupovat online</a>
               </div>
             </div>
           </div>
 
-          <div class="carousel-item" style="background-image: url(static/assets/img/back3.jpg)">
+          <div class="carousel-item" style="background-image: url(static/assets/img/a0.jpg)">
             <div class="carousel-container">
               <div class="container">
-                <h2 class="animate__animated animate__fadeInDown">ثبت سفارش خاص</h2>
-                <p style="font-size: 30px;" class="animate__animated animate__fadeInUp">با ارسال عکس و توضیحات جواهر خاص خود را سفارش دهید</p>
-                <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn-get-started scrollto animate__animated animate__fadeInUp" style="background-color:rgba(255, 217, 0, 0.657) ;">ثبت سفارش</a>
+                <h2 class="animate__animated animate__fadeInDown">  mít vkus módy</h2>
+                <p style="font-size: 30px;" class="animate__animated animate__fadeInUp">    </p>
+                <a href="{% url 'shop' %}"  class="btn-get-started scrollto animate__animated animate__fadeInUp" style="background-color:rgba(255, 217, 0, 0.657) ;">nakupovat online</a>
               </div>
             </div>
           </div>
@@ -55,74 +55,6 @@
       </div>
     </div>
   </section><!-- End Hero Section -->
-  <div class="modal fade" id="exampleModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">ثبت سفارش </h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <form id="sefaresh-form" method="post" enctype="multipart/form-data" action="{% url 'sefaresh' %}" class="">
-                {% csrf_token %}
-                <div class="form-floating mb-3">
-                  <input type="text" name="name" class="form-control rounded-3" id="floatingInput" placeholder="نام">
-                  <label for="floatingInput">نام و نام خانوادگی</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="file" name="image" class="form-control rounded-3" id="floatingPassword" placeholder="">
-                    <label for="floatingPassword">آپلود تصویر</label>
-                  </div>
-  
-    
-                <div class="form-floating mb-3">
-                  <input type="email" name="email" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">آدرس ایمیل</label>
-                </div>
-                <div class="form-floating mb-3">
-                  <input type="text" name="phone" class="form-control rounded-3" id="floatingPassword" placeholder="PhoneNumber">
-                  <label for="floatingPassword">شماره همراه</label>
-                </div>
-                <div class="form-group mt-3">
-                  <textarea class="form-control" name="message" rows="5" placeholder="متن پیام" required></textarea>
-                </div>
-    
-                <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit"> تایید و ارسال</button>
-                <hr class="my-4">
-              </form>
-    
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">بستن</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script>
-    const order = document.getElementById('sefaresh-form');
-  order.addEventListener("submit",submitHandler);
-  function submitHandler(e) {
-      var serializedData = $(this).serialize();
-      e.preventDefault();
-      $.ajax({
-          type: 'POST' , 
-          url : '{% url "sefaresh" %}',
-          data: new FormData(this),
-          processData: false,
-          contentType: false,
-          dataType: 'json',
-          success: function (data) {
-              if (data.msg === 'Success') {
-                  alert('سفارش شما دریافت شد. با شما تماس خواهم گرفت');
-                  $("#sefaresh-form").trigger('reset'); 
-        } else {
-          alert('فرم صحیح نیست و لطفا دوباره امتحان کنید')
-        }
-      }
-   })
-  }
-  
-  </script>
 
 
 

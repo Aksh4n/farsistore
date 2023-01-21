@@ -11,9 +11,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
-import django_heroku
-import dj_database_url
-from decouple import config
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -29,8 +26,7 @@ with open(os.path.join(BASE_DIR, 'secret_key.txt')) as f:
     SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-DEBUG_PROPAGATE_EXCEPTIONS = True
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -48,7 +44,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'text',
     'blog',
-    'azbankgateways',
 
 ]
 
@@ -130,69 +125,22 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
+import os
+
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'home/static')
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-MEDIA_URL = 'static/images/'
+MEDIA_URL = '/images/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-USE_X_FORWARDED_HOST = True
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-AZ_IRANIAN_BANK_GATEWAYS = {
-   'GATEWAYS': {
-       'BMI': {
-           'MERCHANT_CODE': '<YOUR MERCHANT CODE>',
-           'TERMINAL_CODE': '<YOUR TERMINAL CODE>',
-           'SECRET_KEY': '<YOUR SECRET CODE>',
-       },
-       'SEP': {
-           'MERCHANT_CODE': '<YOUR MERCHANT CODE>',
-           'TERMINAL_CODE': '<YOUR TERMINAL CODE>',
-       },
-       'ZARINPAL': {
-           'MERCHANT_CODE': '<YOUR MERCHANT CODE>',
-           'SANDBOX': 0,  # 0 disable, 1 active
-       },
-       'IDPAY': {
-           'MERCHANT_CODE': '<YOUR MERCHANT CODE>',
-           'METHOD': 'POST',  # GET or POST
-           'X_SANDBOX': 0,  # 0 disable, 1 active
-       },
-       'ZIBAL': {
-           'MERCHANT_CODE': '<YOUR MERCHANT CODE>',
-       },
-       'BAHAMTA': {
-           'MERCHANT_CODE': '<YOUR MERCHANT CODE>',
-       },
-       'MELLAT': {
-           'TERMINAL_CODE': '<YOUR TERMINAL CODE>',
-           'USERNAME': '<YOUR USERNAME>',
-           'PASSWORD': '<YOUR PASSWORD>',
-       },
-   },
-   'IS_SAMPLE_FORM_ENABLE': True, # اختیاری و پیش فرض غیر فعال است
-   'DEFAULT': 'BMI',
-   'CURRENCY': 'IRR', # اختیاری
-   'TRACKING_CODE_QUERY_PARAM': 'tc', # اختیاری
-   'TRACKING_CODE_LENGTH': 16, # اختیاری
-   'SETTING_VALUE_READER_CLASS': 'azbankgateways.readers.DefaultReader', # اختیاری
-   'BANK_PRIORITIES': [
-       'BMI',
-       'SEP',
-       # and so on ...
-   ], # اختیاری
-}
-
-
-

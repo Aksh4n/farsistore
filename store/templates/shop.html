@@ -188,16 +188,16 @@
   -->
 
 <!-- Header-->
-<header   style="background-image: url({% static 'assets/img/back6.jpg' %})" data-aos="fade-in" class="bg-dark py-5">
+<header   style="background-image: url({% static 'assets/img/9898.png' %})" data-aos="fade-in" class="bg-dark py-5">
   <div  class="container px-4 px-lg-5 my-5">
       <div class="text-center text-white">
-          <h1 class="display-4 fw-bolder">طلای نیما</h1>
-          <p class="lead fw-normal text-white-50 mb-0">تمامی محصولات دست ساز میباشد</p>
+          <h1 style="text-shadow: 2px 2px 4px #000000;" class="display-4 fw-bolder ">Esther Boutique </h1>
+          <p style="text-shadow: 2px 2px 4px #000000;" class="lead fw-normal text-white-50 mb-0 fw-bolder">Shop in Style!</p>
       </div>
       <br>
       <form  value="{{request.GET.q}}" action="{% url 'search' %}" class="d-flex ">
-        <input name="q" value="{{request.GET.q}}" class="form-control me-2" type="search" placeholder="جستجوی محصول مورد نظر" aria-label="Search">
-        <button class="btn btn-success" type="submit">جستجو</button>
+        <input name="q" value="{{request.GET.q}}" class="form-control me-2" type="search" placeholder="Vyhledejte požadovaný produkt   " aria-label="Search">
+        <button class="btn btn-outline-warning" type="submit">Vyhledávání</button>
       </form>
   </div>
 
@@ -218,7 +218,7 @@
 
 <a href="{% url 'cart' %}"><button id="cartinfo" style="width: 25%;" class="btn btn-success fixed-bottom mb-2 m-1"  data-bs-toggle="modal" data-bs-target="#cart">
   <i class="bi-cart-fill me-1"></i>
-  سبد خرید
+  Cart
   <span  id="cart-total" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning" style="font-size:medium ;">{{cartItems}}</span>
 </button></a>
 {% endif %}
@@ -308,14 +308,14 @@
 {% if cat %}
 <section id="speakers" class=" py-5">
 
-  <h2 class="section-title" data-aos="fade-up" style="font-weight: bold;">دسته بندی ها</h2>
+  <h2 class="section-title" data-aos="fade-up" style="font-weight: bold;">Kategorie  </h2>
       <div  class="list gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-5 ">
           {% for x in cat %}
             <div class="item col-lg-4 col-md-6">
               <div class="speaker" data-aos="fade-up" data-aos-delay="100">
                 <img src="{{x.image.url}}" alt="Speaker 1" class="img-fluid">
                 <div class="details">
-                  <h3><a href="http://127.0.0.1:8080/searchc/?q={{x}}">{{x}}</a></h3>
+                  <h3><a href="http://127.0.0.1:8000/searchc/?q={{x}}">{{x}}</a></h3>
                 </div>
               </div>
             </div>
@@ -332,7 +332,7 @@
 {% if new %}
 <section id="list" class=" py-5">
 
-  <h2 class="section-title" data-aos="fade-up" style="font-weight: bold;">جدیدترین محصولات</h2>
+  <h2 class="section-title" data-aos="fade-up" style="font-weight: bold;">Nové produkty </h2>
       <div id="list" class="list gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-5 ">
 
           {% for p in new %}
@@ -369,9 +369,9 @@
                    
                       <div class="text-center">
                         {% if user.is_authenticated %}
-                        <a onclick="reloadFunction()" data-product="{{p.id}}" data-action="add" class="btn btn-outline-dark mt-auto update-cart add-btn"><i class="bi-cart-fill me-1"></i>افزودن به </a>
+                        <a onclick="reloadFunction()" data-product="{{p.id}}" data-action="add" class="btn btn-outline-dark mt-auto update-cart add-btn"><i class="bi-cart-fill me-1"></i> Add to </a>
                         {% else %}
-                        <a data-bs-toggle="modal" class="btn btn-outline-dark mt-auto update-cart add-btn" href="#exampleModalToggle" role="button">ورود به حساب</a>
+                        <a data-bs-toggle="modal" class="btn btn-outline-dark mt-auto update-cart add-btn" href="#exampleModalToggle" role="button"> Login/Register </a>
                         {%endif%}
                         <button class="btn btn-outline-primary" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#box{{p.id}}" ><i class="bi bi-eye-fill"></i></button>
                       </div>
@@ -395,7 +395,7 @@
 <!-- Section-->
 
 <section  class=" py-5">
-  <h2 class="section-title" data-aos="fade-up" style="font-weight: bold;">محصولات</h2>
+  <h2 class="section-title" data-aos="fade-up" style="font-weight: bold;">produkty</h2>
   <div class="container  px-4 px-lg-5 mt-5">
       <div class=" row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
           {% for product in products %}
@@ -420,10 +420,10 @@
                           </div>
                           <!-- Product price-->
                           {% if product.price_before %}
-                          <span class="text-decoration-line-through">{{product.price_before}}t</span>
+                          <span class="text-decoration-line-through">{{product.price_before}}Kc</span>
                         {% endif %}  
 
-                          {{product.price}}t
+                          {{product.price}}Kc
                       </div>
                   </div>
                   <!-- Product actions-->
@@ -433,9 +433,9 @@
                     
                       <div class="text-center">
                         {% if user.is_authenticated %}
-                        <a onclick="reloadFunction()" data-product="{{product.id}}" data-action="add" class="btn btn-outline-dark mt-auto update-cart add-btn" ><i class="bi-cart-fill me-1"></i>افزودن به</a>
+                        <a onclick="reloadFunction()" data-product="{{product.id}}" data-action="add" class="btn btn-outline-dark mt-auto update-cart add-btn" ><i class="bi-cart-fill me-1"></i>Add</a>
                         {% else %}
-                        <a data-bs-toggle="modal" class="btn btn-outline-dark mt-auto update-cart add-btn" href="#exampleModalToggle" role="button">ورود به حساب</a>
+                        <a data-bs-toggle="modal" class="btn btn-outline-dark mt-auto update-cart add-btn" href="#exampleModalToggle" role="button"> Login/Register </a>
                         {% endif %}
                         <button class="btn btn-outline-primary" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#box{{product.id}}"><i class="bi bi-eye-fill"></i></button>
                       </div>
@@ -480,9 +480,9 @@
                     <h1 class="display-5 fw-bolder">{{product.name}}</h1>
                     <div class="fs-5 mb-5">
                       {% if product.price_before %}
-                        <span class="text-decoration-line-through">{{product.price_before}}t</span>
+                        <span class="text-decoration-line-through">{{product.price_before}}Kc</span>
                       {% endif %}  
-                        <span>{{product.price}}t</span>
+                        <span>{{product.price}}Kc</span>
                     </div>
                     <p class="lead">{{product.description}}</p>
 
@@ -505,13 +505,13 @@
 
                     <div class="d-flex">
                       {% if user.is_authenticated %}
-                      <a onclick="reloadFunction()" data-product="{{product.id}}" data-action="add" class="btn btn-outline-dark mt-auto update-cart add-btn" ><i class="bi-cart-fill me-1"></i>افزودن به سبد خرید</a>
+                      <a onclick="reloadFunction()" data-product="{{product.id}}" data-action="add" class="btn btn-outline-dark mt-auto update-cart add-btn" ><i class="bi-cart-fill me-1"></i> Add to cart  </a>
                       {% else %}
-                      <a data-bs-toggle="modal" class="btn btn-outline-dark mt-auto update-cart add-btn" href="#exampleModalToggle" role="button">ورود به حساب کاربری</a>
+                      <a data-bs-toggle="modal" class="btn btn-outline-dark mt-auto update-cart add-btn" href="#exampleModalToggle" role="button"> Login  </a>
                       {% endif %}
 
                                                        &nbsp;
-                        <button  type="button" class="btn btn-danger" data-bs-dismiss="modal">بستن</button>
+                        <button  type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                     </div>
                     
                 </div>
