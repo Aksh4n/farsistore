@@ -29,7 +29,7 @@ background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 1
               </div>
               <div class="col-md-8">
                 <div class="card-body p-4">
-                  <h6>اطلاعات کاربری</h6>
+                  <h6>informace o účtu</h6>
                   <hr class="mt-0 mb-4">
                   <div class="row pt-1">
                     <div class="col-6 mb-3">
@@ -37,25 +37,25 @@ background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 1
                       <p class="text-muted">{{user.customer.last}}</p>
                     </div>
                     <div class="col-6 mb-3">
-                      <h6>شماره تلفن</h6>
+                      <h6>telefon</h6>
                       <p class="text-muted">{{user.customer.phone}}</p>
                     </div>
                   </div>
-                  <h6>سفارشات</h6>
+                  <h6>Objednávky</h6>
                   <hr class="mt-0 mb-4">
                   <div class="row pt-1">
                     <div class="col-6 mb-3">
-                      <a href="#"><h6>تاریخچه سفارش ها</h6></a>
-                      <a href="#"> <p class="text-muted">پیگیری سفارش</p></a>
+                      <a href="#"><h6> Historie zakázek</h6></a>
+                      <a href="#"> <p class="text-muted">Sledujte objednávky</p></a>
                     </div>
                     <div class="col-6 mb-3">
-                      <a href="#"><h6>ثبت سفارش جدید</h6></a>
-                      <p class="text-muted">تماس با پشتیبانی</p>
+                      <a href="#"><h6>Zaregistrujte novou objednávku </h6></a>
+                      <p class="text-muted">Kontaktujte podporu </p>
                     </div>
                   </div>
                   <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    ثبت/تغییر مشخصات
+  Registrace/změna profilu
   </button>
   
                   </div>
@@ -78,31 +78,31 @@ background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 1
             <form id="customer-form" method="post" action="{% url 'updateprofile' %}" class="">
                 {% csrf_token %}
                 <div class="form-floating mb-3">
-                  <input type="text" name="name" class="form-control rounded-3" id="floatingInput" placeholder="نام">
-                  <label for="floatingInput">نام</label>
+                  <input type="text" name="name" class="form-control rounded-3" id="floatingInput" placeholder="název">
+                  <label for="floatingInput">název</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" name="last" class="form-control rounded-3" id="floatingPassword" placeholder="نام خانوادگی">
-                    <label for="floatingPassword">نام خانوادگی</label>
+                    <input type="text" name="last" class="form-control rounded-3" id="floatingPassword" placeholder="příjmení ">
+                    <label for="floatingPassword">příjmení </label>
                   </div>
   
     
                 <div class="form-floating mb-3">
                   <input type="email" name="email" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">آدرس ایمیل</label>
+                  <label for="floatingInput">emailová adresa</label>
                 </div>
                 <div class="form-floating mb-3">
                   <input type="number" name="phone" class="form-control rounded-3" id="floatingPassword" placeholder="PhoneNumber">
-                  <label for="floatingPassword">شماره همراه</label>
+                  <label for="floatingPassword">telefon</label>
                 </div>
     
-                <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">ذخیره اطلاعات</button>
+                <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Uložte informace</button>
                 <hr class="my-4">
               </form>
     
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">بستن</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">close</button>
         </div>
       </div>
     </div>

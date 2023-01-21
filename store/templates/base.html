@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>طلای نیما</title>
+  <title>Esther Boutique </title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -38,24 +38,23 @@
   ">
     <div class="container-fluid d-flex justify-content-between align-items-center">
 
-      <h1 class="logo me-auto me-lg-0"><a href="index.html">طلای نیما</a></h1>
+      <h1 class="logo me-auto me-lg-0"><a href="index.html">Esther </a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav id="navbar" class="navbar order-last order-lg-0" style="  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
       ">
         <ul>
-          <li><a class="active" href="{% url 'home' %}">خانه</a></li>
-          <li><a href="{% url 'about' %}">درباره</a></li>
-          <li><a href="{% url 'shop' %}">فروشگاه</a></li>
-          <li><a href="{% url 'blog' %}">وبلاگ</a></li>
-          <li><a href="{% url 'contact' %}">تماس</a></li>
+          <li><a href="{% url 'home' %}">Domov</a></li>
+          <li><a href="{% url 'about' %}">o nás</a></li>
+          <li><a href="{% url 'shop' %}">prodejna</a></li>
+          <li><a href="{% url 'contact' %}">kontaktujte nás</a></li>
           {% if user.is_authenticated %}
-          <li><a href="{% url 'logout' %}">خروج از حساب</a></li>
-          <li><a href="{% url 'profile' %}">حساب کاربری</a></li>
+          <li><a href="{% url 'logout' %}">odhlásit se  </a></li>
+          <li><a href="{% url 'profile' %}">účet </a></li>
 
           {% else %}
-          <li><a data-bs-toggle="modal" href="#exampleModalToggle" role="button">ورود/ثبت نام</a></li>
+          <li><a data-bs-toggle="modal" href="#exampleModalToggle" role="button">přihlaste se nebo se zaregistrujte </a></li>
           {% endif %}
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -76,7 +75,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalToggleLabel">ورود به حساب کاربری</h5>
+          <h5 class="modal-title" id="exampleModalToggleLabel">přihlaste se ke svému účtu </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -84,20 +83,20 @@
             {% csrf_token %}
             <div class="form-floating mb-3">
               <input type="text" name="username" class="form-control rounded-3" id="floatingInput" placeholder="UserName">
-              <label for="floatingInput">نام کاربری</label>
+              <label for="floatingInput">Username</label>
             </div>
             <div class="form-floating mb-3">
               <input type="password" name="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password">
-              <label for="floatingPassword">رمز عبور</label>
+              <label for="floatingPassword">Password </label>
             </div>
-            <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">ورود</button>
-            <small class="text-muted">رمز عبور را فراموش کرده اید ؟ <a href="{% url 'reset_password' %}">اینجا کلیک کنید</a> </small>
+            <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Log in</button>
+            <small class="text-muted">Forgot password??? <a href="{% url 'reset_password' %}">Click Here</a> </small>
             <hr class="my-4">
           </form>
 
         </div>
         <div class="modal-footer">
-          <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">حساب کاربری ندارید؟؟ اینجا ثبت نام کنید</button>
+          <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Dont have account?? Register Here</button>
         </div>
       </div>
     </div>
@@ -106,7 +105,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalToggleLabel2">ثبت نام</h5>
+          <h5 class="modal-title" id="exampleModalToggleLabel2">Register</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -114,32 +113,32 @@
             {% csrf_token %}
             <div class="form-floating mb-3">
               <input type="text" name="username" class="form-control rounded-3" id="floatingInput" placeholder="UserName">
-              <label for="floatingInput">نام کاربری</label>
+              <label for="floatingInput">Username </label>
             </div>
 
             <div class="form-floating mb-3">
               <input type="email" name="email" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com">
-              <label for="floatingInput">آدرس ایمیل</label>
+              <label for="floatingInput">Email </label>
             </div>
             <div class="form-floating mb-3">
               <input type="password" name="password1" class="form-control rounded-3" id="floatingPassword" placeholder="Password">
-              <label for="floatingPassword">رمز عبور</label>
+              <label for="floatingPassword">Password</label>
             </div>
             <div class="form-floating mb-3">
               <input type="password" name="password2" class="form-control rounded-3" id="floatingPassword" placeholder="Password">
-              <label for="floatingPassword">رمز عبور مجدد</label>
+              <label for="floatingPassword">Password Again</label>
             </div>
 
-            <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">ثبت نام</button>
+            <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Register</button>
             <hr class="my-4">
           </form>
-          <strong style="float: right;"><small style="color: red;">توجه: نام کاربری به حروف کوچک و بزرگ حساس است</small></strong>
-          <strong style="float: right;"><small style="color: red; float: right;"> رمز عبور باید شامل حداقل 8 کاراکتر و ترکیبی از حروف کوچک و بزرگ باشد</small></strong>
+          <strong dir="ltr" style="float: right;"><small style="color: red;">Poznámka: Uživatelské jméno rozlišuje malá a velká písmena</small></strong>
+          <strong dir="ltr" style="float: right;"><small style="color: red; float: right;"> Heslo musí obsahovat alespoň 8 znaků a kombinaci velkých a malých písmen</small></strong>
 
 
         </div>
         <div class="modal-footer">
-          <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">برگشت به ورود به حساب</button>
+          <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal"> Back to login </button>
         </div>
       </div>
     </div>
@@ -160,10 +159,10 @@
           dataType: 'json',
           success: function (data) {
               if (data.msg === 'Success') {
-                  alert('ثبت نام با موفقیت انجام شد. می تونید به حسابتون ورود کنید');
+                  alert('registered successfully , you can login now');
                   $("#register-form").trigger('reset');
         } else {
-            alert('مشکلی پیش آمده دوباره امتحان کنید')
+            alert('There was an error!!! try again ')
           }
       }
    })
@@ -183,11 +182,11 @@
             dataType: 'json',
             success: function (data) {
                 if (data.msg === 'Success') {
-                    alert('وارد حساب کاربریتان شدید!');
+                    alert('you just logged in!');
                     $("#login-form").trigger('reset'); 
                     window.location.reload();   
           } else {
-            alert('مشکلی پیش آمده دوباره امتحان کنید')
+            alert('  Error!! try again')
           }
         }
      })
@@ -203,10 +202,10 @@
   <footer id="footer">
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>طلای نیما     </span></strong>   تمامی حقوق محفوظ است
+        &copy; Copyright <strong><span>Esther Boutique</span></strong>      All rights reserved
       </div>
       <div class="credits">
-        ساخته شده توسط <a href="ashkansarshari.com">اشکان سرشاری</a>
+         Designed by  <a href="https://ashkansarshari.info"> AshkanSarshari</a>
       </div>
     </div>
   </footer><!-- End  Footer -->

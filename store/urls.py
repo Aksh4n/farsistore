@@ -20,7 +20,6 @@ urlpatterns = [
     path('updateprofile/',views.updateprofile, name='updateprofile'),
     path('sefaresh/',views.sefaresh, name='sefaresh'),
     path('discount/',views.discount, name='discount'),
-    path('gateway/',views.go_to_gateway_view, name='gateway'),
     path('cart/',views.cart, name='cart'),
     path('password_reset/', auth_views.PasswordResetView.as_view(template_name = "registration/reset_password.html"), name ='reset_password'),
     path('reset_password_sent/', auth_views.PasswordResetDoneView.as_view(template_name = "registration/password_reset_sent.html"), name ='password_reset_done'),

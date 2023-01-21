@@ -65,10 +65,10 @@
         <div class="col-10">
   
           <div class="d-flex justify-content-between align-items-center mb-4">
-            <h3 class="fw-normal mb-0 text-black">لیست خریدها</h3>
+            <h3 class="fw-normal mb-0 text-black">seznam položek</h3>
             
-            <button onclick="reloadFunction2()" class="btn btn-secondary" >به روز رسانی</button>
-            <a href="{% url 'shop' %}" class="btn btn-success">بازگشت به فروشگاه</a>
+            <button onclick="reloadFunction2()" class="btn btn-secondary" >Obnovit  </button>
+            <a href="{% url 'shop' %}" class="btn btn-warning">prodejna</a>
           </div>
           {% for item in items %}
 
@@ -89,7 +89,7 @@
                   {% if o %}
                   
                       <p  id="t{{item.product.id}}">
-                        <span style="font-weight:bold ;" class="text-muted">گزینه ها </span>
+                        <span style="font-weight:bold ;" class="text-muted"> možnosti </span>
                         <select   name="option" class="form-select">
                           <option value="{{o.op1}}">{{o.op1}}</option>
                           <option value="{{o.op2}}">{{o.op2}}</option>
@@ -134,7 +134,7 @@
                 </script>                            
 
                 <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                  <h5 class="mb-0">{{item.product.price|floatformat:2}}t</h5>
+                  <h5 class="mb-0">{{item.product.price|floatformat:2}}Kc</h5>
                 </div>
               </div>
             </div>
@@ -145,7 +145,7 @@
 
           <div class="card">
             <div class="card-body">
-              <button id="totalpay" style="width:100%; color:white; font-weight:bold;" type="button" class="btn btn-dark btn-lg btn-block">مجموع سبد : {{order.get_cart_total|floatformat:2}}t</button>
+              <button id="totalpay" style="width:100%; color:white; font-weight:bold;" type="button" class="btn btn-dark btn-lg btn-block">celkový : {{order.get_cart_total|floatformat:2}}Kc</button>
             </div>
           </div>
         
@@ -154,7 +154,7 @@
   
           <div class="card">
             <div class="card-body">
-              <a href="{% url 'checkout' %}" style="width:100%; color:white; font-weight:bold;" type="button" class="btn btn-warning btn-lg btn-block">ادامه و پرداخت</a>
+              <a href="{% url 'checkout' %}" style="width:100%; color:white; font-weight:bold;" type="button" class="btn btn-warning btn-lg btn-block">pokračovat a zaplatit</a>
             </div>
           </div>
   
